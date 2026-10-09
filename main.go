@@ -39,6 +39,7 @@ func main() {
 				return func(sess ssh.Session) {
 					username := sess.User()
 					clients[sess] = true
+					fmt.Fprintln(sess, "This doesn't show your draft messages so make sure you're typing slowly")
 					send(fmt.Sprintf("%s has joined! Say hi!", username))
 					//next(sess)
 					buf := make([]byte, 1024) // I hate go so much
